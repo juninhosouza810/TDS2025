@@ -86,7 +86,7 @@
 </head>
 <body>
   <div class="app-container">
-    <!-- Substitua a URL da logo pela sua hospedada no GitHub -->
+    <!-- Substitua o link abaixo pela URL da sua logo no GitHub -->
     <img src="https://raw.githubusercontent.com/SEU-USUARIO/SEU-REPO/main/logo.png" alt="Logo TDS" class="logo" />
 
     <h1>Acesso TDS</h1>
@@ -100,16 +100,8 @@
 
   <script>
     const REsValidos = [
-      "117698",
-      "106459",
-      "103005",
-      "105535",
-      "117660",
-      "102962",
-      "125367",
-      "109201",
-      "119223",
-      "115051"
+      "117698", "106459", "103005", "105535", "117660",
+      "102962", "125367", "109201", "119223", "115051"
     ];
 
     function fazerLogin() {
@@ -120,8 +112,10 @@
       if (REsValidos.includes(usuario) && senha === "tds5ciapm") {
         msg.className = "success";
         msg.textContent = `Bem-vindo, RE ${usuario}`;
-        // Aqui você pode redirecionar para outra página se quiser
-        // window.location.href = 'pagina.html';
+        // Redireciona após login
+        setTimeout(() => {
+          window.location.href = "https://tds-sveltekit.vercel.app/";
+        }, 500); // pequeno delay para feedback visual
       } else {
         msg.className = "error";
         msg.textContent = "RE ou senha inválidos.";
