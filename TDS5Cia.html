@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login TDS - 5ª Cia PM</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a0f2c, #3a3f4b);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .app-container {
+      background-color: #1a1d2e;
+      border-radius: 20px;
+      padding: 30px 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    .logo {
+      width: 100px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: none;
+      font-size: 16px;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 6px #162d5c;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    button:active {
+      box-shadow: 0 2px #162d5c;
+      transform: translateY(4px);
+    }
+
+    .error {
+      margin-top: 10px;
+      color: #ff6666;
+      font-size: 14px;
+    }
+
+    .success {
+      color: #00ffcc;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Substitua a URL da logo pela sua hospedada no GitHub -->
+    <img src="https://raw.githubusercontent.com/SEU-USUARIO/SEU-REPO/main/logo.png" alt="Logo TDS" class="logo" />
+
+    <h1>Acesso TDS</h1>
+
+    <input type="text" id="usuario" placeholder="Digite seu RE" />
+    <input type="password" id="senha" placeholder="Digite a senha" />
+    <button onclick="fazerLogin()">Entrar</button>
+
+    <div id="mensagem" class="error"></div>
+  </div>
+
+  <script>
+    const REsValidos = [
+      "117698",
+      "106459",
+      "103005",
+      "105535",
+      "117660",
+      "102962",
+      "125367",
+      "109201",
+      "119223",
+      "115051"
+    ];
+
+    function fazerLogin() {
+      const usuario = document.getElementById("usuario").value.trim();
+      const senha = document.getElementById("senha").value.trim();
+      const msg = document.getElementById("mensagem");
+
+      if (REsValidos.includes(usuario) && senha === "tds5ciapm") {
+        msg.className = "success";
+        msg.textContent = `Bem-vindo, RE ${usuario}`;
+        // Aqui você pode redirecionar para outra página se quiser
+        // window.location.href = 'pagina.html';
+      } else {
+        msg.className = "error";
+        msg.textContent = "RE ou senha inválidos.";
+      }
+    }
+  </script>
+</body>
+</html>
